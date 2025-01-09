@@ -1533,7 +1533,7 @@ const myImage = new Proxy({"src":"/dist/assets/img/or-B67KnrWl.png","width":248,
 					});
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "data-astro-cid-j7pv25f6": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<p class="aa" data-astro-cid-j7pv25f6>111</p> <p class="test" data-astro-cid-j7pv25f6>111</p> ${renderComponent($$result2, "Image", $$Image, { "src": myImage, "alt": "\u753B\u50CF\u306E\u8AAC\u660E\u3002", "data-astro-cid-j7pv25f6": true })} ` })}  ${renderScript($$result, "/Users/mizukawahiroshikana/Desktop/astro-sass-build-css-main/src/pages/index.astro?astro&type=script&index=0&lang.ts")}`;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "data-astro-cid-j7pv25f6": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<p class="aa" data-astro-cid-j7pv25f6>ggg</p> <p class="test" data-astro-cid-j7pv25f6>111</p> ${renderComponent($$result2, "Image", $$Image, { "src": myImage, "alt": "\u753B\u50CF\u306E\u8AAC\u660E\u3002", "data-astro-cid-j7pv25f6": true })} ` })}  ${renderScript($$result, "/Users/mizukawahiroshikana/Desktop/astro-sass-build-css-main/src/pages/index.astro?astro&type=script&index=0&lang.ts")}`;
 }, "/Users/mizukawahiroshikana/Desktop/astro-sass-build-css-main/src/pages/index.astro", undefined);
 
 const $$file = "/Users/mizukawahiroshikana/Desktop/astro-sass-build-css-main/src/pages/index.astro";
