@@ -1,41 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
-import { Image } from 'astro:assets';
+import { getBlogs } from "../library/microcms";
+const res = await getBlogs({ fields: ["id", "title"] });
+import { Image } from "astro:assets";
 import myImage from "/src/image/or.png";
-
-
 ---
-	<Layout>
-		<p class="aa">ggg</p>
-		<p class="test">222</p>
-		<Image src={myImage} alt="画像の説明。" />
-	</Layout>
-</body>
-</html>
 
+<Layout>
+  <p class="aa">ggg</p>
+  <p class="test">222</p>
+  <Image src={myImage} alt="画像の説明。" />
+</Layout>
+
+<ul>
+  {
+    res.contents.map((item) => (
+      <li>
+        <a href={item.id}>{item.title}</a>
+      </li>
+    ))
+  }
+</ul>
 
 <style lang="scss">
+  .test {
+    font-size: myrem(30);
+    @include mq("md") {
+      color: red;
+      font-size: myrem(500);
+    }
+  }
 
-.test{
-	font-size: myrem(30);
-		@include mq('md') {
-	color: red;
-	font-size: myrem(500);
-	}
-}
-
-.test{
-	font-size: myrem(100);
-		@include mq('md') {
-	color: red;
-	font-size: myrem(50);
-	}
-}
-
-
+  .test {
+    font-size: myrem(100);
+    @include mq("md") {
+      color: red;
+      font-size: myrem(50);
+    }
+  }
 </style>
 
 <script>
-	console.log('111')
+  console.log("111");
 </script>
