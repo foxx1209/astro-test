@@ -8,6 +8,7 @@ const path = "/dist"
 export default defineConfig({
   // site:"",
   integrations: [sitemap()],
+  base: path,
   trailingSlash: "never",
     vite: {
     css: {
