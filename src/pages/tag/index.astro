@@ -9,9 +9,9 @@ const all = getPages();
   <div class="post">
     <ul>
       {
-        all.map(({ title,link }) => (
+        all.map(({ title,link,tag }) => (
           <li>
-            <a href={link}>{title}</a>
+            <a href={"tag/"+link}>{title}</a>
           </li>
         ))
       }
