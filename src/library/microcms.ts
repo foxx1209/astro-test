@@ -14,8 +14,13 @@ export type Blog = {
   revisedAt: string;
   title: string;
   content: string;
-  img: any; 
-
+  img: any;
+  tag:any;
+ cate: [
+  {
+    title: string;
+  }
+]
 };
 export type BlogResponse = {
   totalCount: number;

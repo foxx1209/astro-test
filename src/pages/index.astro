@@ -1,45 +1,86 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getBlogs } from "../library/microcms";
-const res = await getBlogs({ fields: ["id", "title"] });
-import { Image } from "astro:assets";
-import myImage from "/src/image/or.png";
+const res = await getBlogs({ fields: ["id", "title","img","cate"] });
+const defaultImageUrl = "../src/image/or.png";
+
 ---
 
 <Layout>
-  <p class="aa">ggg</p>
-  <p class="test">222</p>
-  <Image src={myImage} alt="画像の説明。" />
-</Layout>
+{
+  res.contents.map((blog) => (
+    <div>{blog.title}</div>
+    <div class="">
+      <img width="" height="" loading="lazy" decoding="async" src={blog.img?.url || defaultImageUrl} alt=""/>
+    </div>
+    <p>
+      {blog.cate.map((c) => (
+        <span>{c.title}</span>
+      ))}
+    </p>
 
-<ul>
-  {
-    res.contents.map((item) => (
-      <li>
-        <a href={item.id}>{item.title}</a>
-      </li>
-    ))
-  }
-</ul>
+  )
+  )
+}
+</Layout>
 
 <style lang="scss">
   .test {
-    font-size: myrem(30);
+    font-size: (20, 100);
     @include mq("md") {
       color: red;
-      font-size: myrem(500);
+      // font-size: myrem(500);
     }
   }
+  li {
+    list-style: none;
+  }
+  .boxes {
+    transform-style: preserve-3d;
+    perspective: 500px;
+    display: grid;
+    rotate: 1 2 1 45deg;
+  }
+  .box {
+    width: 100px;
+    height: 100px;
+    display: block;
+  }
+  .box:nth-child(1) {
+    transform: translateZ(59px) translateY(339px) translateX(51px);
+    background-color: red;
 
-  .test {
-    font-size: myrem(100);
-    @include mq("md") {
-      color: red;
-      font-size: myrem(50);
-    }
+    width: 100px;
+  }
+  .box:nth-child(2) {
+    transform: rotateY(180deg) translateZ(50px);
+    transform: translateY(218px) translateX(-30px);
+    width: 100px;
+  }
+  .box:nth-child(3) {
+    transform: rotateY(-34deg) translateZ(63px) translateY(153px)
+      translateX(22px);
+    width: 100px;
+    width: 100px;
+    background-color: green;
+  }
+  .box:nth-child(4) {
+    transform: rotateY(90deg) translateZ(50px);
+    width: 100px;
+    background-color: yellow;
+  }
+  .box:nth-child(5) {
+    transform: rotateX(90deg) translateZ(50px);
+    width: 100px;
+    background-color: pink;
+  }
+  .box:nth-child(6) {
+    transform: rotateX(-90deg) translateZ(50px);
+    width: 100px;
+    background-color: orange;
+  }
+  .wrapper {
   }
 </style>
 
-<script>
-  console.log("111");
-</script>
+<script></script>

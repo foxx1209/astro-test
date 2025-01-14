@@ -4,11 +4,11 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 
-const path = "dist"
+// const path = "/dist"
 export default defineConfig({
   // site:"",
   integrations: [sitemap()],
-  base: path,
+  // base: path,
   trailingSlash: "never",
     vite: {
     css: {
@@ -48,3 +48,4 @@ export default defineConfig({
   },
  
 });
+

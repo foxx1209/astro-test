@@ -1,0 +1,20 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getPages } from "../../library/post";
+
+const all = getPages();
+---
+
+<Layout>
+  <div class="post">
+    <ul>
+      {
+        all.map(({ title,link }) => (
+          <li>
+            <a href={link}>{title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

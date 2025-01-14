@@ -1,0 +1,29 @@
+---
+import { getPages } from "../../library/post";
+
+// getStaticPaths関数を定義
+
+export function getStaticPaths() {
+  // getPagesを取得
+  const pages = getPages();
+  // pages配列をmap関数で反復処理し、
+  // 各ページデータから必要な情報を抽出して
+  // 新しいオブジェクトを生成
+  return pages.map(({ tag, title, text, url, link }) => ({
+    // 動的ルートのパラメータ: { tag },
+    // これがないとページが生成されない
+    params: { tag },
+    // 各ページに必要な情報をpropsとして渡す
+    props: { title, text, url, tag, link },
+  }));
+}
+
+import Layout from "../../layouts/Layout.astro";
+const { title, text, url, tag, link } = Astro.props;
+---
+
+<Layout>
+  <h1>{title}</h1>
+  <p>{text}</p>
+  <a href={`/tag/${tag}`}>{title}</a>
+</Layout>
