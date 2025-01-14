@@ -5,14 +5,14 @@ function getPages() {
       title: "js",
       text: "jsは楽しい",
       url: "../src/image/or.png",
-      link: "./js"
+      link: "js"
     },
     {
       tag: "astro",
       title: "astro",
       text: "astroは楽しい",
       url: "../src/image/or.png",
-      link: "./astro"
+      link: "astro"
     },
   ];
 }
