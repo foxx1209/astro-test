@@ -3,15 +3,16 @@ import Layout from "../../layouts/Layout.astro";
 import { getPages } from "../../library/post";
 
 const all = getPages();
+const basePath = import.meta.env.BASE_PATH || ""; // astro.config.mjsで定義したベースパスを取得
 ---
 
 <Layout>
   <div class="post">
     <ul>
       {
-        all.map(({ title,link,tag }) => (
+        all.map(({ title, link, tag }) => (
           <li>
-            <a href={"/dist/tag/"+link}>{title}</a>
+            <a href={`${basePath}/tag/${link}`}>{title}</a>
           </li>
         ))
       }

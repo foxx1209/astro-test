@@ -9,21 +9,22 @@ export function getStaticPaths() {
   // pages配列をmap関数で反復処理し、
   // 各ページデータから必要な情報を抽出して
   // 新しいオブジェクトを生成
-  return pages.map(({ tag, title, text, url,link }) => ({
+  return pages.map(({ tag, title, text, url, link }) => ({
     // 動的ルートのパラメータ: { tag },
     // これがないとページが生成されない
     params: { tag },
-// 各ページに必要な情報をpropsとして渡す
-    props: { title, text, url, tag,link },
+    // 各ページに必要な情報をpropsとして渡す
+    props: { title, text, url, tag, link },
   }));
 }
 
 import Layout from "../../layouts/Layout.astro";
-const { title, text, url, tag,link } = Astro.props;
+const { title, text, url, tag, link } = Astro.props;
+const basePath = import.meta.env.BASE_PATH || ""; // astro.config.mjsで定義したベースパスを取得
 ---
 
 <Layout>
   <h1>{title}</h1>
   <p>{text}</p>
-  <a href={"/dist/"+"tag/"+tag}>{title}</a>
+  <a href={`${basePath}/tag/${link}`}>{title}</a>
 </Layout>

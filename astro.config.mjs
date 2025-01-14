@@ -4,13 +4,18 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 
-const path = "dist"
+const path = "/dist"
 export default defineConfig({
   // site:"",
+    base: path, // ここにベースパスを定義
+
   integrations: [sitemap()],
   base: path,
-  trailingSlash: "never",
+  // trailingSlash: "never",
     vite: {
+      define: {
+      'import.meta.env.BASE_PATH': JSON.stringify(path),
+    },
     css: {
       preprocessorOptions: {
         scss: {
@@ -20,7 +25,6 @@ export default defineConfig({
     },
     
     build: {
-      outDir: path,
       // cssTarget:""
       minify: false,
       emptyOutDir: true,
