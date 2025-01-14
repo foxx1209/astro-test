@@ -11,7 +11,7 @@ const all = getPages();
       {
         all.map(({ title,link,tag }) => (
           <li>
-            <a href={"tag/"+link}>{title}</a>
+            <a href={"/dist/tag/"+link}>{title}</a>
           </li>
         ))
       }
