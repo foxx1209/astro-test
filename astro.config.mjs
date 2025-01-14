@@ -20,7 +20,6 @@ export default defineConfig({
     },
     
     build: {
-        base: path, 
       // cssTarget:""
       minify: false,
       emptyOutDir: true,
